@@ -1,0 +1,280 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>使用hexo搭建blog之五：部署hexo到github | 2013工作室</title>
+  <meta name="author" content="Eric">
+  
+  <meta name="description" content="互联网营销团队">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="使用hexo搭建blog之五：部署hexo到github"/>
+  <meta property="og:site_name" content="2013工作室"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="2013工作室" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+  
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/" style='color:#48D1CC;'>2013工作室</a></h1>
+  <h2><a href="/">互联网营销团队</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/" style='color:#48D1CC;font-weight:bold;'>首页</a></li>
+    
+      <li><a href="/archives" style='color:#48D1CC;font-weight:bold;'>归档</a></li>
+    
+      <li><a href="/about" style='color:#48D1CC;font-weight:bold;'>关于</a></li>
+    
+<li style='color:#48D1CC;'> <a href="/atom.xml" style='color:#48D1CC;font-weight:bold;'>RSS</a> </li>
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div>
+
+
+<div style = 'width=100%;'>
+<hr style='margin-top:20px;height:1px;border:none;border-top:2px solid #48D1CC;' /> 
+</div>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2013-07-21T02:17:00.000Z"><a href="/2013/07/21/hexo-github-deploy/">7月 21 2013</a></time>
+      
+      
+  
+    <h1 class="title">使用hexo搭建blog之五：部署hexo到github</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p><strong>1、添加github连接部署认证</strong>  </p>
+<p>github提供多种链接方式，比较常见的是https方式（这种方式就不做介绍了），我习惯于SSH方式，下面就介绍一下这种方式  </p>
+<p>进入项目主页，在下图的位置，选择SSH，复制生成的repository字符串。<br><img src="/img/hexo-github-deploy/01.png" alt="">  </p>
+<p>打开工作空间的_config.yml文件，把最后的deploy代码段改成如下方式  </p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre>  <span class="attribute">type</span>: <span class="string">github</span>
+  <span class="attribute">repository</span>: <span class="string">git@github.com:账户名/账户名.github.com.git</span>
+  <span class="attribute">branch</span>: <span class="string">master</span>
+</pre></td></tr></table></figure>
+
+
+<p><strong>2、创建SSH-KEY</strong>  </p>
+<a name="more"></a>
+
+<p>首先输入以下命令检查电脑上现有的ssh key：  </p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="variable">$ </span>cd ~<span class="regexp">/.ssh
+</pre></td></tr></table></figure>
+
+
+<p>生成新的SSH Key（这一步之前，可以使用<code>rm id_rsa*</code>删除旧的KEY）：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="comment">$</span> <span class="comment">ssh</span>-<span class="comment">keygen</span> <span class="literal">-</span><span class="comment">t</span> <span class="comment">rsa</span> <span class="literal">-</span><span class="comment">C</span> <span class="comment">"你的github注册邮件地址"
+</pre></td></tr></table></figure>
+
+
+<p>出现以下内容时，直接回车  </p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre>Generating <span class="keyword">public</span>/<span class="keyword">private</span> rsa key pair.
+Enter file <span class="keyword">in</span> which <span class="keyword">to</span> save the key (/Users/your_user_directory/.ssh/id_rsa):
+</pre></td></tr></table></figure>
+
+
+<p>自定加密字符串（Passphrase），同样可直接回车</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre><span class="title">Enter</span> passphrase (empty for <span class="built_in">no</span> passphrase):
+Enter same passphrase again:
+</pre></td></tr></table></figure>
+
+
+<p>看到类似以下内容时，证明成功生成SSH KEY</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre><span class="class">Your</span> identification has been saved in /c/<span class="class">Users</span>/you/.ssh/id_rsa.
+<span class="class">The</span> key fingerprint <span class="method">is:</span>
+<span class="number">01</span>:<span class="number">0</span><span class="method">f:</span><span class="method">f4:</span><span class="number">3</span><span class="method">b:</span><span class="method">ca:</span><span class="number">85</span>:<span class="method">d6:</span><span class="number">17</span>:<span class="method">a1:</span><span class="number">7</span><span class="method">d:</span><span class="method">f0:</span><span class="number">68</span>:<span class="number">9</span><span class="method">d:</span><span class="method">f0:</span><span class="method">a2:</span>db your_email@example.com
+</pre></td></tr></table></figure>
+
+
+<p><strong>3、添加SSH Key到GitHub</strong>  </p>
+<p>点击主页的Account Settings链接<br><img src="/img/hexo-github-deploy/02.png" alt=""><br>再点击&quot;SSH Keys&quot;<br><img src="/img/hexo-github-deploy/03.png" alt=""><br>&quot;Add SSH key&quot;<br><img src="/img/hexo-github-deploy/04.png" alt=""><br>用文本编辑工具打开你刚生成的id_rsa.pub文件，把内容全部复制下来，粘贴到相应文本框，名称任意起<br><img src="/img/hexo-github-deploy/05.png" alt=""><br>点击&quot;Add key&quot;完成SSH KEY在github上的授权<br><img src="/img/hexo-github-deploy/06.png" alt="">  </p>
+<p>输入以下代码测试配置是否成功  </p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="variable">$ </span>ssh -vT git<span class="variable">@github</span>.com
+</pre></td></tr></table></figure>
+
+
+<p>如果出现下面的信息，就输入yes，回车  </p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre>The authenticity <span class="keyword">of</span> host <span class="attribute">'github</span>.com (<span class="number">207.97</span><span class="number">.227</span><span class="number">.239</span>)' can<span class="attribute">'t</span> be established.
+RSA key fingerprint <span class="keyword">is</span> <span class="number">16</span>:<span class="number">27</span>:ac:a5:<span class="number">76</span>:<span class="number">28</span>:<span class="number">2</span>d:<span class="number">36</span>:<span class="number">63</span>:<span class="number">1</span>b:<span class="number">56</span>:<span class="number">4</span>d:eb:df:a6:<span class="number">48.</span>
+Are you sure you want <span class="keyword">to</span> continue connecting (yes/no)?
+</pre></td></tr></table></figure>
+
+
+<p>最后出你在github的用户名  </p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>Hi 你的用户名! Yo<span class="string">u've successfully authenticated, but GitHub does not provide shell access.
+</pre></td></tr></table></figure>
+
+
+<p><strong>阶段性成功！！下一步，就可以把本地的blog部署到github了。</strong>  </p>
+<p><strong>4、绑定域名</strong>  </p>
+<p>这一步，完成我们在<a href="http://studio2013.com/2013/06/20/dns/">使用hexo搭建blog之三：解析DNS</a> 时遗留的工作，让<code>username.github.io</code>通过自己的域名来访问。<br>在<code>hexo\source</code>下新建一个名为CNAME的文件，无后缀，内容如下：  </p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="filename">yourdomain.com
+</pre></td></tr></table></figure>
+
+<p>同样也可以指定二级域名，但需要注意一点，在DNS解析设置时，一级域名需要做A记录，二级域名才可以做CNAME记录，具体请见<a href="http://studio2013.com/2013/06/20/dns/">使用hexo搭建blog之三：解析DNS</a>   </p>
+<p>设置完成后，一般几个小时域名解析会生效。  </p>
+<p><strong>5、部署本地到github</strong>  </p>
+<p>我们在<a href="http://studio2013.com/2013/06/21/hexo-deploy/">使用hexo搭建blog之四：本地部署hexo</a>应该可以在本地看到只包含一篇文章的初始的blog，现在我们将其部署到github  </p>
+<p>进入<code>D:\hexo</code>目录，右键选择<code>git bash</code>命令，输入以下命令</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre><span class="title">hexo</span> generate
+<span class="title">hexo</span> deploy
+</pre></td></tr></table></figure>
+
+
+<p>当<code>deploy</code>完成后，我们会看到在<code>D:\hexo</code>目录下，会生成<code>.deploy</code>文件夹，同时访问我们的域名，如<code>http://studio2013.com</code>，可以看到hexo主页，即<strong>大功告成！！</strong>  </p>
+<p><strong><font style="color:red">注意几个可能发生的问题：</font></strong>  </p>
+<p>1、因为我们这里讲的是SSH连接方式，这也是我认为最可靠，最方便的一种连接方式，但有可能会出现每次push时，都需要输入用户名和密码，而我们用<code>ssh -T git@github.com</code>时，是没有问题的，这种情况多发生之前创建过HTTPS登陆方式，但信息没有清除干净，解决方法是，在git配置目录或<code>hexo\.deploy\.git</code>下，打开<code>config</code>文件，将HTTPS开头的字符串，改为<code>it@github.com:账户名/账户名.github.com.git</code>方式。  </p>
+<p>2、提示各种端口占用错误<br>首先使用下面命令查看  </p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="variable">$ </span>ssh -vT git<span class="variable">@github</span>.com
+</pre></td></tr></table></figure>
+
+<p>如果出现类似<code>ssh: connect to host github.com port 22: Bad file number</code>错误，说明端口可能被其它监听程序占用，解决办法如下：  </p>
+<p>在存放SSH-KEY证书的目录里，建立一个名为config的文件，无后缀，打开输入以下内容，并保存  </p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+</pre></td><td class="code"><pre>Host github<span class="variable">.com</span>
+    User git
+    Hostname ssh<span class="variable">.github</span><span class="variable">.com</span>
+    PreferredAuthentications publickey
+    IdentityFile ~/<span class="variable">.ssh</span>/id_rsa
+    Port <span class="number">443</span>
+</pre></td></tr></table></figure>
+
+<p>完成这一步后，再执行下面命令，OK了  </p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="variable">$ </span>ssh -vT git<span class="variable">@github</span>.com
+</pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+
+        <!-- Baidu Button BEGIN -->
+<div id="bdshare" class="bdshare_b" style="line-height: 12px;">
+<img src="http://bdimg.share.baidu.com/static/images/type-button-2.jpg?cdnversion=20120831" />
+<a class="shareCount"></a>
+</div>
+<script type="text/javascript" id="bdshare_js" data="type=button&amp;uid=0" ></script>
+<script type="text/javascript" id="bdshell_js"></script>
+<script type="text/javascript">
+document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000);
+</script>
+<!-- Baidu Button END -->
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+
+  <!-- Duoshuo Comment BEGIN -->
+	<div class="ds-thread"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"studio2013"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = 'http://static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		|| document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- Duoshuo Comment END -->
+
+</section>
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:studio2013.com">
+  </form>
+</div>
+
+  
+
+  
+
+  
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2013 Eric
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>

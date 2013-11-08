@@ -1,0 +1,172 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>使用hexo搭建blog之四：本地部署hexo | 2013工作室</title>
+  <meta name="author" content="Eric">
+  
+  <meta name="description" content="互联网营销团队">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="使用hexo搭建blog之四：本地部署hexo"/>
+  <meta property="og:site_name" content="2013工作室"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="2013工作室" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+  
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/" style='color:#48D1CC;'>2013工作室</a></h1>
+  <h2><a href="/">互联网营销团队</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/" style='color:#48D1CC;font-weight:bold;'>首页</a></li>
+    
+      <li><a href="/archives" style='color:#48D1CC;font-weight:bold;'>归档</a></li>
+    
+      <li><a href="/about" style='color:#48D1CC;font-weight:bold;'>关于</a></li>
+    
+<li style='color:#48D1CC;'> <a href="/atom.xml" style='color:#48D1CC;font-weight:bold;'>RSS</a> </li>
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div>
+
+
+<div style = 'width=100%;'>
+<hr style='margin-top:20px;height:1px;border:none;border-top:2px solid #48D1CC;' /> 
+</div>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2013-06-21T01:49:32.000Z"><a href="/2013/06/21/hexo-deploy/">6月 21 2013</a></time>
+      
+      
+  
+    <h1 class="title">使用hexo搭建blog之四：本地部署hexo</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p><strong>1、安装Git</strong><br>首先去 <a href="http://msysgit.github.io&quot;http://msysgit.github.io&quot;"><a href="http://msysgit.github.io">http://msysgit.github.io</a></a> 安装msysgit，这个blog安装的版本是目前最新的1.8.3<br>这里要注意，如果您对linux的命令行语法不熟悉，那么建议把&quot;Git Bash Here&quot;和&quot;Git GUI Here&quot;这两个复选框选中。如下图：  </p>
+<p><img src="/img/hexo-deploy/01.png" alt="">  </p>
+<p>安装完成后，在任意位置下鼠标右键，点“Git bash”，在弹出的命令行窗口中，输入<code>git version</code>，出现版本号，证明正确安装。</p>
+<p><strong>2、安装Node.js</strong><br>去 <a href="http://nodejs.org&quot;http://nodejs.org&quot;"><a href="http://nodejs.org">http://nodejs.org</a></a> 安装Node.js，这个blog安装的版本是目前最新的0.10.12。  </p>
+<p><strong>3、安装hexo</strong><br>完成上两条后，在<code>Git bash</code>弹出的命令行窗口中，输入<code>npm install -g hexo</code> ，hexo安装完成。<br>同样，为了验证hexo是否安装顺利，在<code>Git bash</code>命令行窗口中，输入<code>hexo version</code>，出现hexo及各组件版本号，说明正确安装。 </p>
+<p><strong>3、建立工作目录</strong><br>接下来要建立一个workspace，比如我在C盘建立一个文件夹，起名<code>hexo</code>，那么，在这个文件夹内点击鼠标右键，选择<code>Git bash</code>，输入<code>hexo init</code>命令。hexo的工作空间就建立好了。 </p>
+<a name="more"></a>
+
+<p><strong>4、本地部署hexo</strong><br>在“C:\hexo”内点击鼠标右键，选择“Git bash”，输入以下命令  </p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre><span class="title">hexo</span> generate
+<span class="title">hexo</span> server
+</pre></td></tr></table></figure>
+
+
+<p>然后在浏览器输入<code>localhost:4000</code>，就可以看到本地的hexo blog了。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+
+        <!-- Baidu Button BEGIN -->
+<div id="bdshare" class="bdshare_b" style="line-height: 12px;">
+<img src="http://bdimg.share.baidu.com/static/images/type-button-2.jpg?cdnversion=20120831" />
+<a class="shareCount"></a>
+</div>
+<script type="text/javascript" id="bdshare_js" data="type=button&amp;uid=0" ></script>
+<script type="text/javascript" id="bdshell_js"></script>
+<script type="text/javascript">
+document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000);
+</script>
+<!-- Baidu Button END -->
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+
+  <!-- Duoshuo Comment BEGIN -->
+	<div class="ds-thread"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"studio2013"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = 'http://static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		|| document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- Duoshuo Comment END -->
+
+</section>
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:studio2013.com">
+  </form>
+</div>
+
+  
+
+  
+
+  
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2013 Eric
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>

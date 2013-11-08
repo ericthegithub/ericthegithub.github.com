@@ -1,0 +1,318 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>使用hexo搭建blog之八：一些技巧和优化 | 2013工作室</title>
+  <meta name="author" content="Eric">
+  
+  <meta name="description" content="互联网营销团队">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="使用hexo搭建blog之八：一些技巧和优化"/>
+  <meta property="og:site_name" content="2013工作室"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="2013工作室" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+  
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/" style='color:#48D1CC;'>2013工作室</a></h1>
+  <h2><a href="/">互联网营销团队</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/" style='color:#48D1CC;font-weight:bold;'>首页</a></li>
+    
+      <li><a href="/archives" style='color:#48D1CC;font-weight:bold;'>归档</a></li>
+    
+      <li><a href="/about" style='color:#48D1CC;font-weight:bold;'>关于</a></li>
+    
+<li style='color:#48D1CC;'> <a href="/atom.xml" style='color:#48D1CC;font-weight:bold;'>RSS</a> </li>
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div>
+
+
+<div style = 'width=100%;'>
+<hr style='margin-top:20px;height:1px;border:none;border-top:2px solid #48D1CC;' /> 
+</div>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2013-07-28T06:10:00.000Z"><a href="/2013/07/28/hexo-guide03/">7月 28 2013</a></time>
+      
+      
+  
+    <h1 class="title">使用hexo搭建blog之八：一些技巧和优化</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p><strong>1、对文章进行摘要显示</strong><br>很简单，在想分割的地方添加<code>&lt;!--more--&gt;</code>即可。  </p>
+<p><strong>2、图片</strong><br>放在<code>D:\hexo\source\img</code>下即可，引用时用下面语句  </p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>![](<span class="regexp">/img/hexo</span>-github-deploy/<span class="number">01</span>.png)  
+</pre></td></tr></table></figure>
+
+
+<p><strong>3、创建自定义页面</strong><br>在<code>D:\hexo\source</code>下建立<code>about</code>文件夹，并在此文件夹中新建<code>index.md</code>文件，文件内容如下：  </p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+</pre></td><td class="code"><pre><span class="comment">title:</span> <span class="comment">关于我们</span>
+<span class="comment">date:</span> <span class="comment">2013</span>-<span class="comment">06</span>-<span class="comment">20</span> <span class="comment">13:44:23</span>
+<span class="literal">-</span><span class="literal">-</span><span class="literal">-</span>
+<span class="comment">编辑您的内容
+</pre></td></tr></table></figure>
+
+
+<p>修改<code>D:\hexo\themes\light</code>下的<code>_config.yml</code>文件，加入相应的菜单目录，如下：  </p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+</pre></td><td class="code"><pre><span class="keyword">menu</span>:
+  首页: /
+  归档: /archives
+  关于: /<span class="keyword">about</span>
+</pre></td></tr></table></figure>
+
+
+<a name="more"></a>
+
+<p><strong>4、替换评论模块</strong>  </p>
+<p>既然面向读者是中文用户，没有理由用自带的disqus，下面把disqus换成国内比较流行的多说  </p>
+<p>在<a href="http://duoshuo.com/">多说</a>注册，并获取通用代码  </p>
+<p>在<code>D:\hexo\themes\light\layout\_partial</code>下，打开<code>comment.ejs</code>文件，将代码改造如下：  </p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+</pre></td><td class="code"><pre><span class="vbscript">&lt;% <span class="keyword">if</span> (page.comments){ %&gt;</span> //注意此处一定别忘记修改
+<span class="tag">&lt;<span class="title">section</span> <span class="attribute">id</span>=<span class="value">"comment"</span>&gt;</span>
+  <span class="comment">&lt;!-- Duoshuo Comment BEGIN --&gt;</span>
+	<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"ds-thread"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript">
+<span class="keyword">var</span> duoshuoQuery = {short_name:<span class="string">"studio2013"</span>};
+	(<span class="keyword">function</span>() {
+		<span class="keyword">var</span> ds = document.createElement(<span class="string">'script'</span>);
+		ds.type = <span class="string">'text/javascript'</span>;ds.async = <span class="literal">true</span>;
+		ds.src = <span class="string">'http://static.duoshuo.com/embed.js'</span>;
+		ds.charset = <span class="string">'UTF-8'</span>;
+		(document.getElementsByTagName(<span class="string">'head'</span>)[<span class="number">0</span>] 
+		|| document.getElementsByTagName(<span class="string">'body'</span>)[<span class="number">0</span>]).appendChild(ds);
+	})();
+	</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+<span class="comment">&lt;!-- Duoshuo Comment END --&gt;</span>
+<span class="tag">&lt;/<span class="title">section</span>&gt;</span>
+<span class="vbscript">&lt;% } %&gt;</span>
+</pre></td></tr></table></figure>
+
+
+<p><strong>5、添加ICO图标</strong>  </p>
+<p>首先准备好.ico格式的图标文件，在<code>themes/light/layout/_partial/head.ejs</code>里将<link href="<%- config.root %>favicon.png" rel="icon">替换为<link href="<%- config.root %>favicon.ico" rel="icon" type="image/x-ico">。将favicon.ico放在source目录下即可。</p>
+<p><strong>6、添加百度分享模块</strong>  </p>
+<p>在<a href="http://share.baidu.com/code">百度分享</a>获取代码，并在<code>themes/light/layout/_partial/article.ejs</code>中，将<code>&lt;%-partial(&#39;post/share&#39;)%&gt;</code>替换即可。  </p>
+<p><strong>7、添加RSS支持</strong>  </p>
+<p>首先利用下面命令安装RSS插件  </p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="title">npm</span> install hexo-generator-feed
+</pre></td></tr></table></figure>
+
+
+<p>在<code>hexo/_config.yml</code>中，修改成以下代码：  </p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+</pre></td><td class="code"><pre><span class="preprocessor"># Extensions</span>
+<span class="preprocessor">## Plugins: https://github.com/tommy351/hexo/wiki/Plugins</span>
+<span class="preprocessor">## Themes: https://github.com/tommy351/hexo/wiki/Themes</span>
+plugins: - hexo-generator-feed
+</pre></td></tr></table></figure>
+
+
+<p>在<code>themes/light/_config.yml</code>中，修改以下代码：  </p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre>Extensions
+<span class="label">google_analytics:</span>
+<span class="label">rss:</span> /atom<span class="preprocessor">.xml</span>
+</pre></td></tr></table></figure>
+
+
+<p>在<code>themes/light/layout/_partial/header.ejs</code>中，修改以下代码：  </p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre></td><td class="code"><pre><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"alignleft"</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">h1</span>&gt;</span><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"&lt;%- config.root %&gt;"</span>&gt;</span><span class="vbscript">&lt;%= config.title %&gt;</span><span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="tag">&lt;/<span class="title">h1</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">h2</span>&gt;</span><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"&lt;%- config.root %&gt;"</span>&gt;</span><span class="vbscript">&lt;% <span class="keyword">if</span> (config.subtitle){ %&gt;</span><span class="vbscript">&lt;%= config.subtitle %&gt;</span><span class="vbscript">&lt;% } %&gt;</span><span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="tag">&lt;/<span class="title">h2</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<span class="tag">&lt;<span class="title">nav</span> <span class="attribute">id</span>=<span class="value">"main-nav"</span> <span class="attribute">class</span>=<span class="value">"alignright"</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">ul</span>&gt;</span>
+    <span class="vbscript">&lt;% <span class="keyword">for</span> (var i <span class="keyword">in</span> theme.menu){ %&gt;</span>
+      <span class="tag">&lt;<span class="title">li</span>&gt;</span><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"&lt;%- theme.menu[i] %&gt;"</span>&gt;</span><span class="vbscript">&lt;%= i %&gt;</span><span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="tag">&lt;/<span class="title">li</span>&gt;</span>
+    <span class="vbscript">&lt;% } %&gt;</span>
+<span class="tag">&lt;<span class="title">li</span>&gt;</span> <span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"/atom.xml"</span>&gt;</span>RSS<span class="tag">&lt;/<span class="title">a</span>&gt;</span> <span class="tag">&lt;/<span class="title">li</span>&gt;</span>  //此处添加一行
+  <span class="tag">&lt;/<span class="title">ul</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"clearfix"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">nav</span>&gt;</span>
+<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"clearfix"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+</pre></td></tr></table></figure>
+
+
+<p><strong>8、添加sitemap模块</strong>  </p>
+<p>和添加RSS类似，执行下面命令：  </p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="title">npm</span> install hexo-generator-sitemap
+</pre></td></tr></table></figure>
+
+
+<p>在<code>hexo/_config.yml</code>中，修改成以下代码：  </p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+</pre></td><td class="code"><pre><span class="preprocessor"># Extensions</span>
+<span class="preprocessor">## Plugins: https://github.com/tommy351/hexo/wiki/Plugins</span>
+<span class="preprocessor">## Themes: https://github.com/tommy351/hexo/wiki/Themes</span>
+plugins: - hexo-generator-feed
+plugins: - hexo-generator-sitemap
+</pre></td></tr></table></figure>
+
+<p>访问 <a href="http://studio2013.com/sitemap.xml">http://studio2013.com/sitemap.xml</a> 即可看到网站地图。当然，您也可以手动把sitemap提交到各大搜索引擎。</p>
+<p>OK了</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+
+        <!-- Baidu Button BEGIN -->
+<div id="bdshare" class="bdshare_b" style="line-height: 12px;">
+<img src="http://bdimg.share.baidu.com/static/images/type-button-2.jpg?cdnversion=20120831" />
+<a class="shareCount"></a>
+</div>
+<script type="text/javascript" id="bdshare_js" data="type=button&amp;uid=0" ></script>
+<script type="text/javascript" id="bdshell_js"></script>
+<script type="text/javascript">
+document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000);
+</script>
+<!-- Baidu Button END -->
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+
+  <!-- Duoshuo Comment BEGIN -->
+	<div class="ds-thread"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"studio2013"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = 'http://static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		|| document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- Duoshuo Comment END -->
+
+</section>
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:studio2013.com">
+  </form>
+</div>
+
+  
+
+  
+
+  
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2013 Eric
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>
