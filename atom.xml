@@ -2,18 +2,18 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title><![CDATA[2013工作室]]></title>
   <subtitle><![CDATA[互联网营销团队]]></subtitle>
-  <link href="http://studio2013.com/atom.xml" rel="self"/>
-  <link href="http://studio2013.com"/>
-  <updated>2013-11-08T01:21:13.363Z</updated>
-  <id>http://studio2013.com/</id>
+  <link href="http://www.studio2013.com/atom.xml" rel="self"/>
+  <link href="http://www.studio2013.com"/>
+  <updated>2013-11-29T08:30:30.897Z</updated>
+  <id>http://www.studio2013.com/</id>
   <author>
     <name><![CDATA[Eric]]></name>
   </author>
   <generator uri="http://zespia.tw/hexo">Hexo</generator>
   <entry>
     <title type="html"><![CDATA[tumblr汤不热自动发布工具改版完成]]></title>
-    <link href="http://studio2013.com/2013/10/28/tumblr-automatic-post/"/>
-    <id>http://studio2013.com/2013/10/28/tumblr-automatic-post/</id>
+    <link href="http://www.studio2013.com/2013/10/28/tumblr-automatic-post/"/>
+    <id>http://www.studio2013.com/2013/10/28/tumblr-automatic-post/</id>
     <published>2013-10-28T09:12:00.000Z</published>
     <updated>2013-11-06T06:24:41.000Z</updated>
     <content type="html"><![CDATA[<p>说是自动发布，但关键词是用小越另一套工具来完成的，所以还算不上全自动。而且客户没要求批量follow和like，所以这个只能算是个生产力工具，还算不上营销工具；  </p>
@@ -23,8 +23,8 @@
   </entry>
   <entry>
     <title type="html"><![CDATA[使用hexo搭建blog之八：一些技巧和优化]]></title>
-    <link href="http://studio2013.com/2013/07/28/hexo-guide03/"/>
-    <id>http://studio2013.com/2013/07/28/hexo-guide03/</id>
+    <link href="http://www.studio2013.com/2013/07/28/hexo-guide03/"/>
+    <id>http://www.studio2013.com/2013/07/28/hexo-guide03/</id>
     <published>2013-07-28T06:10:00.000Z</published>
     <updated>2013-08-21T07:59:38.000Z</updated>
     <content type="html"><![CDATA[<p><strong>1、对文章进行摘要显示</strong><br>很简单，在想分割的地方添加<code>&lt;!--more--&gt;</code>即可。  </p>
@@ -194,8 +194,8 @@ plugins: - hexo-generator-sitemap
   </entry>
   <entry>
     <title type="html"><![CDATA[使用hexo搭建blog之七：发布文章]]></title>
-    <link href="http://studio2013.com/2013/07/28/hexo-guide02/"/>
-    <id>http://studio2013.com/2013/07/28/hexo-guide02/</id>
+    <link href="http://www.studio2013.com/2013/07/28/hexo-guide02/"/>
+    <id>http://www.studio2013.com/2013/07/28/hexo-guide02/</id>
     <published>2013-07-28T06:10:00.000Z</published>
     <updated>2013-08-21T05:20:12.000Z</updated>
     <content type="html"><![CDATA[<p><strong>1、本地建立新文章</strong><br>输入以下命令，当然，我更喜欢直接copy旧的文章，直接改</p>
@@ -236,8 +236,8 @@ tags:  <span class="comment">//文章标签</span>
   </entry>
   <entry>
     <title type="html"><![CDATA[使用hexo搭建blog之六：了解hexo的配置]]></title>
-    <link href="http://studio2013.com/2013/07/21/hexo-guide01/"/>
-    <id>http://studio2013.com/2013/07/21/hexo-guide01/</id>
+    <link href="http://www.studio2013.com/2013/07/21/hexo-guide01/"/>
+    <id>http://www.studio2013.com/2013/07/21/hexo-guide01/</id>
     <published>2013-07-21T02:17:00.000Z</published>
     <updated>2013-08-21T06:12:15.000Z</updated>
     <content type="html"><![CDATA[<p><strong>1、全局配置</strong>  </p>
@@ -481,8 +481,8 @@ tags:  <span class="comment">//文章标签</span>
   </entry>
   <entry>
     <title type="html"><![CDATA[使用hexo搭建blog之五：部署hexo到github]]></title>
-    <link href="http://studio2013.com/2013/07/21/hexo-github-deploy/"/>
-    <id>http://studio2013.com/2013/07/21/hexo-github-deploy/</id>
+    <link href="http://www.studio2013.com/2013/07/21/hexo-github-deploy/"/>
+    <id>http://www.studio2013.com/2013/07/21/hexo-github-deploy/</id>
     <published>2013-07-21T02:17:00.000Z</published>
     <updated>2013-08-21T06:12:24.000Z</updated>
     <content type="html"><![CDATA[<p><strong>1、添加github连接部署认证</strong>  </p>
@@ -614,8 +614,8 @@ Are you sure you want <span class="keyword">to</span> continue connecting (yes/n
   </entry>
   <entry>
     <title type="html"><![CDATA[使用hexo搭建blog之四：本地部署hexo]]></title>
-    <link href="http://studio2013.com/2013/06/21/hexo-deploy/"/>
-    <id>http://studio2013.com/2013/06/21/hexo-deploy/</id>
+    <link href="http://www.studio2013.com/2013/06/21/hexo-deploy/"/>
+    <id>http://www.studio2013.com/2013/06/21/hexo-deploy/</id>
     <published>2013-06-21T01:49:32.000Z</published>
     <updated>2013-08-21T06:12:33.000Z</updated>
     <content type="html"><![CDATA[<p><strong>1、安装Git</strong><br>首先去 <a href="http://msysgit.github.io&quot;http://msysgit.github.io&quot;"><a href="http://msysgit.github.io">http://msysgit.github.io</a></a> 安装msysgit，这个blog安装的版本是目前最新的1.8.3<br>这里要注意，如果您对linux的命令行语法不熟悉，那么建议把&quot;Git Bash Here&quot;和&quot;Git GUI Here&quot;这两个复选框选中。如下图：  </p>
@@ -639,8 +639,8 @@ Are you sure you want <span class="keyword">to</span> continue connecting (yes/n
   </entry>
   <entry>
     <title type="html"><![CDATA[使用hexo搭建blog之三：解析DNS]]></title>
-    <link href="http://studio2013.com/2013/06/20/dns/"/>
-    <id>http://studio2013.com/2013/06/20/dns/</id>
+    <link href="http://www.studio2013.com/2013/06/20/dns/"/>
+    <id>http://www.studio2013.com/2013/06/20/dns/</id>
     <published>2013-06-20T13:41:10.000Z</published>
     <updated>2013-08-21T06:13:03.000Z</updated>
     <content type="html"><![CDATA[<p>其实设置DNS在godaddy的控制面板里就可以做了，godaddy会提供两个NS地址，但实际访问速度一般，所以我们选择国内的DNS服务商<a href="https://www.dnspod.cn/&quot;dnspod&quot;">dnspod</a><br>注册就不说，注册完成后，选择“我的域名”，输入要添加的域名，点击确定
@@ -657,8 +657,8 @@ Are you sure you want <span class="keyword">to</span> continue connecting (yes/n
   </entry>
   <entry>
     <title type="html"><![CDATA[使用hexo搭建blog之二：注册GitHub]]></title>
-    <link href="http://studio2013.com/2013/06/20/github-reg/"/>
-    <id>http://studio2013.com/2013/06/20/github-reg/</id>
+    <link href="http://www.studio2013.com/2013/06/20/github-reg/"/>
+    <id>http://www.studio2013.com/2013/06/20/github-reg/</id>
     <published>2013-06-20T13:12:10.000Z</published>
     <updated>2013-08-21T06:12:56.000Z</updated>
     <content type="html"><![CDATA[<p>注册github非常简单，在这里<a href="https://github.com/signup/free" title="github">github</a>，输入账户名、邮箱、密码即可，需要在邮箱确认注册。<br><img src="/img/github-reg/01.png" alt=""><br>我们利用github的<code>GitHub Page Generator</code>功能，为blog找一个托管地。所以，注册成功并登录后，点github主页右上角的<code>Create a new repository</code>  </p>
@@ -672,8 +672,8 @@ Are you sure you want <span class="keyword">to</span> continue connecting (yes/n
   </entry>
   <entry>
     <title type="html"><![CDATA[使用hexo搭建blog之一：从godaddy购买域名]]></title>
-    <link href="http://studio2013.com/2013/06/20/godaddy-domain-reg/"/>
-    <id>http://studio2013.com/2013/06/20/godaddy-domain-reg/</id>
+    <link href="http://www.studio2013.com/2013/06/20/godaddy-domain-reg/"/>
+    <id>http://www.studio2013.com/2013/06/20/godaddy-domain-reg/</id>
     <published>2013-06-20T06:05:19.000Z</published>
     <updated>2013-08-21T06:15:36.000Z</updated>
     <content type="html"><![CDATA[<p>域名选择在前几年，还是个学问，这几年，就不用考虑了。基本上只有一种推荐：godaddy。<br>好处多多，无备案，零手续无延时过户……下面就拿这个blog为例，说一下在godaddy购买域名的流程吧。<br>第一步：有可能要翻墙，我一直在用<a href="https://code.google.com/p/goagent/" title="goagent">goagent</a>，如果需要，可以参考一下。<br>第二步：去<a href="http://www.godaddy.com/" title="godaddy">godaddy</a>注册账户  </p>
